@@ -1,84 +1,114 @@
 * {
-    font-family: Inter;
+  font-family: Inter;
 }
 
 html {
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-  
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ol,
-  ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-  }
-  
-  ol,
-  ul {
-    list-style: none;
-  }
-  
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  main {
-    height: 80vh;
-  }
-  
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+footer,
+header {
+  padding: 12px;
+}
+
+.container {
+  max-width: 96%;
+  margin: 0 auto;
+}
+
+.main-header {
+  width: 100%;
+  background-color: #1e1e2f;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+}
+
+.main-header .account-display {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.mobile-nav {
+  width: 100%;
+  background-color: #1e1e2f;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  gap: 1em;
+}
+
+.avatar-icon {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-icon {
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  width: 80%;
+  padding: 1em;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.mobile-nav-icon:hover {
+  background-color: #e6e66ab5;
+}
+
+.mobile-nav-icon i {
+  font-size: 2em;
+}
+
+@media screen and (max-width: 800px) {
   footer,
   header {
-    padding: 12px;
+    padding: 1em;
   }
-  
-  .main-header {
-    width: 100%;
-    background-color: #1e1e2f;
-    display: flex;
-    align-items: center;
-    color: white;
-    justify-content: flex-end;
-  }
-  
-  .mobile-nav {
-    width: 100%;
-    background-color: #1e1e2f;
-    display: flex;
-    align-items: center;
-    color: white;
-    justify-content: space-between;
-  }
-  
-  .avatar-icon {
-    border: 1px solid white;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  @media screen and (max-width: 800px) {
-    footer,
-    header {
-      padding: 1em;
-    }
-  }
-  
+}
