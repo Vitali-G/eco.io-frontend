@@ -1,0 +1,52 @@
+h1.login-text {
+  margin: 176px auto 0;
+  font-size: 64px;
+  font-weight: normal;
+}
+
+.textheader {
+  align-items: center;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-form input {
+  width: 280px;
+  height: 41.5px;
+  text-align: center;
+  border-radius: 30px;
+  font-size: 20px;
+}
+
+div.username,
+div.password {
+  margin: 9px auto;
+}
+
+div.submitbtn {
+  margin-top: 167px;
+}
+
+div.submitbtn button {
+  width: 280px;
+  height: 41.5px;
+  border-radius: 30px;
+  font-size: 22px;
+}
+
+div.submitbtn button,
+div.username input,
+div.password input {
+  border: transparent 0px solid;
+}
+
+div.username input,
+div.password input {
+  background-color: aliceblue;
+}
