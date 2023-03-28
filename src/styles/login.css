@@ -10,6 +10,10 @@ h1.login-text {
   padding: 0;
 }
 
+.welcome-back {
+  font-size: 22px;
+}
+
 .login-form {
   display: flex;
   align-items: center;
