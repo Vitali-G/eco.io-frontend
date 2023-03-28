@@ -28,6 +28,11 @@ ul {
   font-weight: normal;
 }
 
+a {
+  text-decoration: none;
+  color: #AD00FF;
+}
+
 ol,
 ul {
   list-style: none;

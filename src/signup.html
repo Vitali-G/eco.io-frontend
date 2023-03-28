@@ -16,16 +16,16 @@
     </header>
 
     <form class="signup-form" id="signup">
-        <input type="text" name="username" placeholder="username">
-        <input type="email" name="email" placeholder="email">
-        <input type="password" name="password" placeholder="password">
+        <input type="text" name="username" placeholder="username" minlength="6" maxlength="18" required>
+        <input type="email" name="email" placeholder="email" required>
+        <input type="password" name="password" placeholder="password" minlength="8" required>
         <button type="submit">Submit</button>
     </form>
 
     <div class="logindiv">
         <p class="login">
           Don't have an account?
-          <a href="./login.html" class="loginbtn">Log in</a>
+          <a href="./login.html" class="loginbtn">log in</a>
         </p>
       </div>
 </body>
