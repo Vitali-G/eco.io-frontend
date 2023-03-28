@@ -13,9 +13,7 @@ async function login(data) {
         body: payload
     }
 
-
     let response = await fetch('http://localhost:3000/auth/login', options)
-
 
     try {
         let dat = await response.json();

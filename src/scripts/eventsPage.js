@@ -1,11 +1,18 @@
 const allEventsEl = document.querySelector('#all-events-list');
 
+let eventState = {};
+
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();
 
+        dat.forEach((e, i) => {
+            eventState[i] = e;
+        })
+
+        console.log(eventState);
         return dat;
     } catch (error) {
         return error;
@@ -13,9 +20,9 @@ async function getAllEvents() {
 
 }
 
-function createEventItem({ owner_id, upvotes, title, description, location }) {
+function createEventItem({ owner_id, upvotes, title, description, location }, index) {
     return (
-        `<div class="event-item">
+        `<div class="event-item" data-index="${index}">
         <div class="event-header">
             <div class="event-header-tag">
                 <i class="fa fa-ticket" aria-hidden="true"></i>
@@ -44,19 +51,28 @@ function createEventItem({ owner_id, upvotes, title, description, location }) {
 function populateEvents(element, events) {
     let eventElems = [];
 
-    events.forEach(event => {
-        let el = createEventItem(event);
-
+    events.forEach((event, i) => {
+        let el = createEventItem(event, i);
         eventElems.push(el);
     })
 
     element.innerHTML = eventElems.join(' ')
 }
 
+allEventsEl.addEventListener('click', (e) => {
+    let listItem = e.target.closest('div.event-item');
+    if(listItem) {
+        console.log(eventState[listItem.dataset.index]);
+    }
+})
+
 document.addEventListener('DOMContentLoaded', async () => {
     let events = await getAllEvents();
 
-    console.log(events);
+    if (events.message) {
+        window.location.assign('/login.html')
+    } else {
+        populateEvents(allEventsEl, events)
+    }
 
-    populateEvents(allEventsEl, events)
 })
