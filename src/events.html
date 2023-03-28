@@ -1,40 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css">
-    <link rel="stylesheet" href="./styles/events.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/events.css" />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Eventite - All Events</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="main-header">
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
+      <div class="account-display">
+        <p>Admin</p>
+        <a href="./login.html" class="avatar-icon">
+          <p>A</p>
+        </a>
+      </div>
     </header>
 
     <main class="container">
-        <h1>test</h1>
+      <h1>Search Events</h1>
+      
+      <div class="event-searchbar">
+        <input type="text" >
+      </div>
+    
+
+      <div class="events-list">
+
+        <a href="event.html" class="event-item">
+          <div class="event-header">
+            <div class="event-header-tag">
+              <i class="fa fa-ticket" aria-hidden="true"></i>
+              <h2>Event Name</h2>
+            </div>
+
+            <div class="event-location">Location</div>
+          </div>
+          <div class="item-spacer"></div>
+
+          <div class="event-body">
+            <div class="stat">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              10000+
+            </div>
+          </div>
+        </a>
+
+        <a href="event.html" class="event-item">
+          <div class="event-header">
+            <div class="event-header-tag">
+              <i class="fa fa-ticket" aria-hidden="true"></i>
+              <h2>Event Name</h2>
+            </div>
+
+            <div class="event-location">Location</div>
+          </div>
+          <div class="item-spacer"></div>
+
+          <div class="event-body">
+            <div class="stat">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              10000+
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="events-list">
+        <h1>Top Events</h1>
+        <div class="event-item">
+          <div class="event-header">
+            <div class="event-header-tag">
+              <i class="fa fa-ticket" aria-hidden="true"></i>
+              <h2>Event Name</h2>
+            </div>
+
+            <div class="event-location">Location</div>
+          </div>
+          <div class="item-spacer"></div>
+
+          <div class="event-body">
+            <div class="stat">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              10000+
+            </div>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <div class="event-header">
+            <div class="event-header-tag">
+              <i class="fa fa-ticket" aria-hidden="true"></i>
+              <h2>Event Name</h2>
+            </div>
+
+            <div class="event-location">Location</div>
+          </div>
+          <div class="item-spacer"></div>
+
+          <div class="event-body">
+            <div class="stat">
+              <i class="fa fa-users" aria-hidden="true"></i>
+              10000+
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="mobile-nav">
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
-        <div class="avatar-icon">
-            <p>A</p>
-        </div>
+      <a href="./about.html" class="mobile-nav-icon">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        <p>Help</p>
+      </a>
+      
+      <a href="./create-event.html" class="mobile-nav-icon">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        <p>Request Event</p>
+      </a>
+
+      <a href="./approve-event.html" class="mobile-nav-icon">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        <p>Approve Event</p>
+      </a>
+
+      <a href="./leaderboard.html" class="mobile-nav-icon">
+        <i class="fa fa-trophy" aria-hidden="true"></i>
+        <p>Leaderboard</p>
+      </a>
+
+      <a href="./events.html" class="mobile-nav-icon">
+        <i class="fa fa-ticket" aria-hidden="true"></i>
+        <p>All Events</p>
+      </a>
     </footer>
-</body>
+  </body>
 </html>
