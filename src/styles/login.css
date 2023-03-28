@@ -25,6 +25,10 @@ h1.login-text {
   margin-bottom: 8px;
 }
 
+.login-form input:first-child {
+  margin-top: 32px;
+}
+
 .login-form button {
   margin-top: 167px;
 }
@@ -45,4 +49,8 @@ h1.login-text {
 .login-form input,
 .login-form input {
   background-color: aliceblue;
+}
+
+.form-errors {
+  color: red;
 }

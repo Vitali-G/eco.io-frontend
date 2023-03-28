@@ -1,4 +1,5 @@
 const loginForm = document.querySelector('#log-in-form');
+const loginFormErrorEl = document.querySelector('#form-errors');
 
 async function login(data) {
     let payload = JSON.stringify(data);
@@ -12,25 +13,35 @@ async function login(data) {
         body: payload
     }
 
-    console.log(payload);
+
     let response = await fetch('http://localhost:3000/auth/login', options)
 
 
-    let dat = await response.json();
+    try {
+        let dat = await response.json();
 
-    return dat;
+        return dat;
+    } catch (error) {
+        return error
+    }
 }
 
 loginForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     let formValues = new FormData(loginForm);
-
     let data = { username: formValues.get('username').toString(), password: formValues.get('password').toString() }
-
-
 
     let res = await login(data);
 
-    console.log(res);
+
+    if (res.error) {
+        loginFormErrorEl.textContent = res.error;
+    } else {
+        loginFormErrorEl.textContent = "";
+        localStorage.setItem('cachedUser', JSON.stringify(res))
+        console.log('logged in');
+
+        window.location.assign('/events.html')
+    }
 })
