@@ -56,7 +56,10 @@ function populateEvents(element, events) {
 document.addEventListener('DOMContentLoaded', async () => {
     let events = await getAllEvents();
 
-    console.log(events);
+    if (events.message) {
+        window.location.assign('/login.html')
+    } else {
+        populateEvents(allEventsEl, events)
+    }
 
-    populateEvents(allEventsEl, events)
 })
