@@ -1,5 +1,5 @@
 * {
-  font-family: Inter;
+  font-family: "Inter";
 }
 
 html {
@@ -55,7 +55,6 @@ header {
   align-items: center;
   color: white;
   justify-content: flex-end;
-  margin-bottom: 32px;
 }
 
 .main-header .account-display {
@@ -73,7 +72,12 @@ header {
   justify-content: space-around;
   position: fixed;
   bottom: 0;
-  gap: 1em;
+  gap: 10px;
+}
+
+.mobile-nav a{
+  color: inherit;
+  text-decoration: none;
 }
 
 .avatar-icon {

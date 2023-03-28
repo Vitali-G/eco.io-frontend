@@ -28,6 +28,11 @@
 /* event item styles */
 
 .event-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.event-item {
   width: 100%;
   background-color: #1e1e2f;
   padding: 1em;
