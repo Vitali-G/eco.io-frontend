@@ -23,45 +23,34 @@ h1.login-text {
   text-align: center;
   border-radius: 30px;
   font-size: 20px;
+  margin-bottom: 8px;
 }
 
-div.username {
-  margin: 0 auto 18px;
+.login-form input:first-child {
+  margin-top: 32px;
 }
 
-div.submitbtn {
-  margin-top: 143px;
-}
+.login-form button {
+  margin-top: 167px;
 
-div.submitbtn button {
+.login-form  button {
   width: 280px;
   height: 41.5px;
   border-radius: 30px;
   font-size: 22px;
 }
 
-div.submitbtn button,
-div.username input,
-div.password input {
+.login-form button,
+.login-form input,
+.login-form input {
   border: transparent 0px solid;
 }
 
-div.username input,
-div.password input {
+.login-form input,
+.login-form input {
   background-color: aliceblue;
 }
 
-div.username input {
-  margin-top: 83px;
-}
-
-h3.welcome-back {
-  margin: 0 auto;
-  font-size: 24px;
-  font-weight: normal;
-}
-
-p.signup {
-  font-size: 16px;
-  margin-top: 9px;
+.form-errors {
+  color: red;
 }
