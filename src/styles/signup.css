@@ -1,0 +1,43 @@
+.signup-text {
+    margin-top: 176px;
+    font-size: 64px;
+    font-weight: normal;
+}
+
+.welcome-text {
+    font-size: 24px;
+}
+
+.textheader,
+.signup-form,
+.logindiv {
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form input {
+    width: 280px;
+    height: 41.5px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 20px;
+    margin-top: 8px;
+    border: transparent 0px solid;
+    background-color: aliceblue;
+}
+
+.signup-form input:first-child {
+    margin-top: 32px;
+}
+
+.signup-form button {
+    margin-top: 144px;
+    width: 280px;
+    height: 41.5px;
+    border-radius: 30px;
+    font-size: 22px;
+    border: transparent 0px solid;
+}
