@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/login.css"/>
-    <link rel="stylesheet" href="./styles/index.css"/>
-    <script src="./scripts/login.js"></script>
+    <link rel="stylesheet" href="./styles/login.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,28 +20,26 @@
       <h3 class="welcome-back">Welcome back!</h3>
     </header>
 
-    <form class="login-form" id="log-in">
-      <div class="username">
-        <input
-          type="text"
-          name="username"
-          placeholder="username"
-          maxlength="16"
-          minlength="8"
-          required="true"
-        />
-      </div>
-      <div class="password">
-        <input
-          required="true"
-          type="password"
-          name="password"
-          placeholder="password"
-        />
-      </div>
-      <div class="submitbtn">
-        <button type="submit" id="username" id="password">Submit</button>
-      </div>
+    <form class="login-form" id="log-in-form">
+      <input
+        type="text"
+        name="username"
+        placeholder="username"
+        maxlength="12"
+        minlength="5"
+        required="true"
+      />
+
+      <input
+        required="true"
+        type="password"
+        name="password"
+        placeholder="password"
+      />
+      <span class="form-errors" id="form-errors"></span>
+
+      <button type="submit">Submit</button>
+
       <div class="signupdiv">
         <p class="signup">
           Don't have an account?
@@ -50,5 +47,6 @@
         </p>
       </div>
     </form>
+    <script src="./scripts/login.js"></script>
   </body>
 </html>
