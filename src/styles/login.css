@@ -7,6 +7,7 @@ h1.login-text {
 .textheader {
   align-items: center;
   text-align: center;
+  padding: 0;
 }
 
 .login-form {
@@ -24,13 +25,12 @@ h1.login-text {
   font-size: 20px;
 }
 
-div.username,
-div.password {
-  margin: 9px auto;
+div.username {
+  margin: 0 auto 18px;
 }
 
 div.submitbtn {
-  margin-top: 167px;
+  margin-top: 143px;
 }
 
 div.submitbtn button {
@@ -49,4 +49,19 @@ div.password input {
 div.username input,
 div.password input {
   background-color: aliceblue;
+}
+
+div.username input {
+  margin-top: 83px;
+}
+
+h3.welcome-back {
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p.signup {
+  font-size: 16px;
+  margin-top: 9px;
 }
