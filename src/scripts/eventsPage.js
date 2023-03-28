@@ -33,7 +33,7 @@ function createEventItem({ owner_id, upvotes, title, description, location }) {
             10000+
             </div>
             <div class="stat">
-            <i class="fa fa-users" aria-hidden="true"></i>
+            <i class="fas fa-vote-yea"></i>
             ${upvotes}
             </div>
         </div>
@@ -50,7 +50,7 @@ function populateEvents(element, events) {
         eventElems.push(el);
     })
 
-    element.innerHTML = eventElems
+    element.innerHTML = eventElems.join(' ')
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
