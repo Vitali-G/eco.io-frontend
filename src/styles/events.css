@@ -92,6 +92,8 @@
   }
 }
 
+--modal styling
+
 .modalBtn:hover {
   background: grey;
 }
@@ -109,12 +111,12 @@
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.2);
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
 }
 
 .event-content {
-  position: fixed;
+  position: relative;
   overflow-y: scroll;
   overflow-x: none;
   height: 60%;
