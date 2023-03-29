@@ -1,4 +1,12 @@
 const allEventsEl = document.querySelector('#all-events-list');
+//Get modal element
+const modal = document.getElementById('eventModal');
+//get open modal button
+const event = document.getElementById('modalBtn');
+//get close button
+const closeBtn = document.getElementById('closeBtn');
+const modalTitle = document.getElementById('title');
+const modalDescription = document.getElementById('description');
 
 let eventState = {};
 
@@ -63,6 +71,7 @@ allEventsEl.addEventListener('click', (e) => {
     let listItem = e.target.closest('div.event-item');
     if(listItem) {
         console.log(eventState[listItem.dataset.index]);
+        openModal(eventState[listItem.dataset.index])
     }
 })
 
@@ -77,17 +86,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 })
 
-//Get modal element
-const modal = document.getElementById('eventModal');
-//get open modal button
-const event = document.getElementById('modalBtn');
-//get close button
-const closeBtn = document.getElementById('closeBtn');
-//Listen for click
-allEventsEl.addEventListener('click', openModal);
 //Function to open modal
-function openModal() {
+function openModal(data) {
     modal.style.display = 'block';
+    modalTitle.textContent = data.title;
+    modalDescription.textContent = data.description;
 }
 //Listen for click
 closeBtn.addEventListener('click', closeModal);
