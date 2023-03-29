@@ -1,0 +1,84 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  gap: 1em;
+}
+
+.leaderboard-title {
+  font-size: 2.1em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* user list styles */
+
+.users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.list-title {
+  font-size: 2em;
+  margin: 32px 0;
+}
+
+/* user item styles */
+
+.user-item {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user-item {
+  width: 100%;
+  background-color: #1e1e2f;
+  padding: 1em;
+  color: white;
+  border-radius: 8px;
+}
+
+.user-item .user-header-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-item .user-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-item .admin-tag {
+  background-color: #7db7c3;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+.user-item .item-spacer {
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  opacity: 0.66;
+  margin: 12px 0;
+}
+
+.user-item .stat {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.user-item .user-body {
+  display: flex;
+  gap: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .user-item {
+    font-size: 0.9em;
+  }
+}

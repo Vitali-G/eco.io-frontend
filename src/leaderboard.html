@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/leaderboard.css">
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -16,19 +17,20 @@
       rel="stylesheet"
     />
     <title>Index</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="main-header">
-        <div class="account-display">
-          <p>Admin</p>
-          <div class="avatar-icon">
-            <p>A</p>
-          </div>
+      <div class="account-display">
+        <p>Admin</p>
+        <div class="avatar-icon">
+          <p>A</p>
         </div>
-      </header>
+      </div>
+    </header>
 
     <main class="container">
-        this is the approve-event page?
+      <h1 class="leaderboard-title">Leaderboard</h1>
+      <div class="leaderboard" id="leaderboard"></div>
     </main>
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
@@ -56,5 +58,6 @@
         <p>All Events</p>
       </a>
     </footer>
-</body>
+    <script src="./scripts/leaderboard.js"></script>
+  </body>
 </html>
