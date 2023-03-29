@@ -1,9 +1,15 @@
+// get the events list element
 const allEventsEl = document.querySelector('#all-events-list');
 
+//Get modal element + close button
+const modal = document.getElementById('eventModal');
+const closeBtn = document.getElementById('closeBtn');
+
+// setting page state - eventsList state + cachedUser
 let eventState = {};
 let cachedUser = JSON.parse(localStorage.getItem('cachedUser'))
 
-// user actions
+// define user actions
 const userActionStore = () => {
     let userActions = {
         upvote: 'user-upvote',
@@ -63,12 +69,14 @@ const userActionStore = () => {
     return { upvoteEvent, approveEvent, userActions }
 }
 
+// function to call for events from server
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();
 
+        // fill eventState for eventsList click listener { indexOfEvent: number, }
         if (dat.length) {
             dat.forEach((e, i) => {
                 eventState[i] = e;
@@ -79,9 +87,9 @@ async function getAllEvents() {
     } catch (error) {
         return error;
     }
-
 }
 
+// create string representations of the events 
 function createEventItem({ owner_id, upvotes, title, description, location }, index) {
     return (
         `<div class="event-item" data-index="${index}">
@@ -123,6 +131,7 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
     )
 }
 
+// populate the event element with the string representation of the events, converting them to html
 function populateEvents(element, events) {
     let eventElems = [];
 
@@ -167,9 +176,9 @@ allEventsEl.addEventListener('click', (e) => {
             upvoteEvent(listItem, clickData.item);
             break;
 
-        // if the user is a normal user, upvote the event
+        // if the user action is view, populate modal with selected item
         case userActions.view:
-            console.log(selectedItem);
+            openModal(selectedItem);
             break;
 
         default:
@@ -190,17 +199,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 })
 
-//Get modal element
-const modal = document.getElementById('eventModal');
-//get open modal button
-const modalBtn = document.getElementById('modalBtn');
-//get close button
-const closeBtn = document.getElementById('closeBtn');
-//Listen for click
-modalBtn.addEventListener('click', openModal);
+
 //Function to open modal
-function openModal() {
+function openModal(data) {
+    let modalTitle = modal.querySelector('p#title');
+    let modalDescription = modal.querySelector('p#description');
+
     modal.style.display = 'block';
+    modalTitle.textContent = data.title;
+    modalDescription.textContent = data.description;
 }
 //Listen for click
 closeBtn.addEventListener('click', closeModal);
