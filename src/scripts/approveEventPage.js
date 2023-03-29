@@ -69,6 +69,27 @@ const userActionStore = () => {
     return { upvoteEvent, approveEvent, userActions }
 }
 
+// define modal controls 
+const modalControls = (modal) => {
+
+    //Function to open modal
+    function openModal(data) {
+        let modalTitle = modal.querySelector('p#title');
+        let modalDescription = modal.querySelector('p#description');
+
+        modal.style.display = 'block';
+        modalTitle.textContent = data.title;
+        modalDescription.textContent = data.description;
+    }
+
+    //Function to close modal
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    return { openModal, closeModal }
+}
+
 // function to call for events from server
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
@@ -90,7 +111,7 @@ async function getAllEvents() {
 }
 
 // create string representations of the events 
-function createEventItem({ owner_id, upvotes, title, description, location }, index) {
+function createEventItem({ upvotes, title, location }, index) {
     return (
         `<div class="event-item" data-index="${index}">
         <div class="event-header">
@@ -143,11 +164,15 @@ function populateEvents(element, events) {
 
         element.innerHTML = eventElems.join(' ')
     } else {
-        element.textContent = 'Error'
+        element.textContent = events.message || events.error
     }
 
 }
 
+// invoke modalControls on modal element;
+let { closeModal, openModal } = modalControls(modal);
+
+// list event listener, determines type of action and conditionally renders controls based on account type
 allEventsEl.addEventListener('click', (e) => {
     // find if an item was selected
     let listItem = e.target.closest('div.event-item');
@@ -186,32 +211,15 @@ allEventsEl.addEventListener('click', (e) => {
     }
 })
 
+// on pageload, populate events, if it doesn't work redirect user to login.
 document.addEventListener('DOMContentLoaded', async () => {
     let events = await getAllEvents();
 
-    console.log(events);
+    if (events.message) return window.location.assign('/login.html');
 
-    if (events.message) {
-        window.location.assign('/login.html')
-    } else {
-        populateEvents(allEventsEl, events)
-    }
-
+    populateEvents(allEventsEl, events)
 })
 
-
-//Function to open modal
-function openModal(data) {
-    let modalTitle = modal.querySelector('p#title');
-    let modalDescription = modal.querySelector('p#description');
-
-    modal.style.display = 'block';
-    modalTitle.textContent = data.title;
-    modalDescription.textContent = data.description;
-}
-//Listen for click
+// listen for closeModal
 closeBtn.addEventListener('click', closeModal);
-//Function to close modal
-function closeModal() {
-    modal.style.display = 'none';
-}
+
