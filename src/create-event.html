@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/events.css" />
+    <link rel="stylesheet" href="./styles/create-event.css" />
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -25,7 +25,24 @@
       </div>
     </header>
 
-    <main class="container">create event</main>
+    <main class="container">
+      <h1 class="title">create event</h1>
+
+      <form class="create-event-form" id="event-form">
+        <label for="title">Event Title</label>
+        <input type="text" name="title" placeholder="Local Garage Sale" required/>
+
+        <label for="title">Location</label>
+        <input type="text" name="location" placeholder="Eldgreen" required/>
+
+        <div class="flex">
+          <label for="title">Event Description</label>
+          <textarea name="description" required minlength="28"></textarea>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </main>
 
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
@@ -55,5 +72,6 @@
     </footer>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/create-event.js"></script>
   </body>
 </html>
