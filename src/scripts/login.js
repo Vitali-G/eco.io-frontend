@@ -40,6 +40,6 @@ loginForm.addEventListener('submit', async e => {
         localStorage.setItem('cachedUser', JSON.stringify(res))
         console.log('logged in');
 
-        window.location.assign('/events.html')
+        window.location.assign('/')
     }
 })

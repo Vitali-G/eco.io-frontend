@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/events.css" />
+    <link rel="stylesheet" href="./styles/leaderboard.css">
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Eventite - All Events</title>
+    <title>Index</title>
   </head>
   <body>
     <header class="main-header">
@@ -28,32 +28,16 @@
       </div>
     </header>
 
-    <main>
-      <div class="event-hero">
-        <img
-          src="https://images.unsplash.com/photo-1674574124567-79b2ee3d22fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-          alt="community image"
-        />
-      </div>
-
-      <div class="container">
-        <div class="main-body">
-          <h2>Description</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            illo ipsa obcaecati sint quam, rerum nulla cumque ad a rem quia
-            assumenda! Suscipit quos ipsum enim modi sunt praesentium quo?
-          </p>
-        </div>
-      </div>
+    <main class="container">
+      <h1 class="leaderboard-title">Leaderboard</h1>
+      <div class="leaderboard" id="leaderboard"></div>
     </main>
-
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
         <i class="fa fa-question-circle" aria-hidden="true"></i>
         <p>Help</p>
       </a>
-      
+
       <a href="./create-event.html" class="mobile-nav-icon">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
         <p>Request Event</p>
@@ -69,10 +53,11 @@
         <p>Leaderboard</p>
       </a>
 
-      <a href="./events.html" class="mobile-nav-icon">
+      <a href="./" class="mobile-nav-icon">
         <i class="fa fa-ticket" aria-hidden="true"></i>
         <p>All Events</p>
       </a>
     </footer>
+    <script src="./scripts/leaderboard.js"></script>
   </body>
 </html>
