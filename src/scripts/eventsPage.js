@@ -11,11 +11,12 @@ async function getAllEvents() {
     try {
         let dat = await response.json();
 
-        dat.forEach((e, i) => {
-            eventState[i] = e;
-        })
+        if (dat.length) {
+            dat.forEach((e, i) => {
+                eventState[i] = e;
+            })
+        }
 
-        console.log(eventState);
         return dat;
     } catch (error) {
         return error;
@@ -54,18 +55,23 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
 function populateEvents(element, events) {
     let eventElems = [];
 
-    events.forEach((event, i) => {
-        let el = createEventItem(event, i);
-        eventElems.push(el);
-    })
+    if (events.length) {
+        events.forEach((event, i) => {
+            let el = createEventItem(event, i);
+            eventElems.push(el);
+        })
 
-    element.innerHTML = eventElems.join(' ')
+        element.innerHTML = eventElems.join(' ')
+    } else {
+        element.textContent = 'Error'
+    }
+
 }
 
 allEventsEl.addEventListener('click', (e) => {
     let listItem = e.target.closest('div.event-item');
 
-    if(listItem) {
+    if (listItem) {
         let selectedItem = eventState[listItem.dataset.index];
 
         // you wanna use this with the modal c: 
@@ -75,6 +81,8 @@ allEventsEl.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     let events = await getAllEvents();
+
+    console.log(events);
 
     if (events.message) {
         window.location.assign('/login.html')

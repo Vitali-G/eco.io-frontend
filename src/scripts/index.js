@@ -1,10 +1,17 @@
+function logout() {
+    localStorage.removeItem('cachedUser');
+    console.log('logging out');
+    window.location.assign('/login.html');
+}
+
 (() => {
-    const accountDisplayElem = document.querySelector('#account-display');
-    
+    const usernameElem = document.querySelector('#account-display-username');
+
     let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
 
-    let titleElem = accountDisplayElem.querySelector('#account-display-title');
+    usernameElem.innerText = cachedUser.username;
 
-    titleElem.innerHTML = cachedUser.username;
-
+    usernameElem.addEventListener('click', () => {
+        logout()
+    });
 })()
