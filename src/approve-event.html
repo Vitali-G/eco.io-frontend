@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/events.css" />
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -24,7 +25,19 @@
       </div>
     </header>
 
-    <main class="container">this is the approve-event page?</main>
+    <main class="container">
+      <p class="list-title">Top Events</p>
+      <div class="events-list" id="all-events-list">Loading...</div>
+      <button class="modalBtn" id="modalBtn">Open</button>
+
+      <div id="eventModal" class="modal">
+        <div class="event-content">
+          <span id="closeBtn" class="closeBtn">&times;</span>
+          <p>Hello this is a modal</p>
+        </div>
+      </div>
+    </main>
+
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
         <i class="fa fa-question-circle" aria-hidden="true"></i>
@@ -51,6 +64,7 @@
         <p>All Events</p>
       </a>
     </footer>
+    <script src="./scripts/approveEventPage.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

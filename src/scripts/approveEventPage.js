@@ -1,12 +1,9 @@
 const allEventsEl = document.querySelector('#all-events-list');
 
 let eventState = {};
-let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
-
-console.log(cachedUser);
 
 async function getAllEvents() {
-    let response = await fetch('http://localhost:3000/events/a/all', { credentials: 'include' })
+    let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();
@@ -63,7 +60,7 @@ function populateEvents(element, events) {
 
         element.innerHTML = eventElems.join(' ')
     } else {
-        element.textContent = events.error
+        element.textContent = 'Error'
     }
 
 }
