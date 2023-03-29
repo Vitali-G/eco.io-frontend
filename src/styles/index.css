@@ -30,7 +30,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #AD00FF;
+  color: #0000FF;
 }
 
 ol,
@@ -139,6 +139,10 @@ header {
 }
 
 .event-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
   position: relative;
   overflow-y: scroll;
   overflow-x: none;
@@ -147,7 +151,7 @@ header {
   background-color: white;
   margin: 43.5% 15%;
   padding: 20px;
-  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2)
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -161,6 +165,13 @@ header {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.title-location {
+  margin-top: 5%;
+  padding-bottom: 2%;
+  border-bottom: solid #1E1E2F 2px;
+  margin-bottom: 5%;
+}
+
 .closeBtn {
   color: #ccc;
   float: right;
@@ -170,10 +181,23 @@ header {
   font-size: 30px;
 }
 
-
 .closeBtn:hover,.closeBtn:focus{
   color: #000;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.book {
+  float: bottom;
+  background-color: grey;
+  color: #fff;
+  border: transparent solid 0px;
+  border-radius: 5px;
+  height: 24px;
+}
+
+.book:hover {
+  background: rgb(34, 34, 34);
   cursor: pointer;
 }
 

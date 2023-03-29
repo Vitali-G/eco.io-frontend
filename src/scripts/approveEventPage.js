@@ -204,9 +204,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 function openModal(data) {
     let modalTitle = modal.querySelector('p#title');
     let modalDescription = modal.querySelector('p#description');
+    let modalLocation = modal.querySelector('p#location')
 
     modal.style.display = 'block';
     modalTitle.textContent = data.title;
+    modalLocation.textContent = data.location;
     modalDescription.textContent = data.description;
 }
 //Listen for click

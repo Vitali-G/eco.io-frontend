@@ -12,6 +12,7 @@ h1.login-text {
 
 .welcome-back {
   font-size: 22px;
+  color: #0000FF;
 }
 
 .login-form {
@@ -63,4 +64,8 @@ h1.login-text {
 .login-form button:hover {
   background: grey;
   cursor: pointer;
+}
+
+p.signup {
+  margin-top: 5px;
 }
