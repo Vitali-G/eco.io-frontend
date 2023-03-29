@@ -59,3 +59,8 @@ h1.login-text {
 .form-errors {
   color: red;
 }
+
+.login-form button:hover {
+  background: grey;
+  cursor: pointer;
+}
