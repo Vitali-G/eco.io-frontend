@@ -134,12 +134,12 @@ function createEventItem({ upvotes, title, location }, index) {
            
             ${cachedUser.isAdmin ?
             `<div class="admin-controls">
-                    <button data-action='admin-approve'>approve</button>
-                    <button data-action='user-view'>view</button>
+                    <button data-action='admin-approve' class="approveBtn">approve</button>
+                    <button data-action='user-view' class='viewBtn'>view</button>
                 </div>`
             :
             `<div class="user-controls">
-                    <button data-action='user-upvote'>upvote</button>
+                    <button data-action='user-upvote' class='upvoteBtn'>upvote</button>
                     <button data-action='user-view'>view</button>
                 </div>`
         }
@@ -220,6 +220,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     populateEvents(allEventsEl, events)
 })
 
+//Function to open modal
+function openModal(data) {
+    let modalTitle = modal.querySelector('p#title');
+    let modalDescription = modal.querySelector('p#description');
+    let modalLocation = modal.querySelector('p#location')
+
+    modal.style.display = 'block';
+    modalTitle.textContent = data.title;
+    modalLocation.textContent = data.location;
+    modalDescription.textContent = data.description;
+}
 // listen for closeModal
 closeBtn.addEventListener('click', closeModal);
 

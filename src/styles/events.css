@@ -91,3 +91,24 @@
   }
 }
 
+.approveBtn, .upvoteBtn, .viewBtn {
+  background: #fff;
+  border: transparent solid 0px;
+  border-radius: 5px;
+  height: 24px;
+}
+
+.approveBtn:hover, .upvoteBtn:hover, .viewBtn:hover {
+  background: rgb(141, 141, 141);
+  cursor: pointer;
+}
+
+.admin-controls {
+  display: flex;
+  width: 100%;
+}
+
+.viewBtn {
+  margin-left: auto;
+  order: 2;
+}
