@@ -125,6 +125,7 @@ header {
 
 /* modal styling */
 
+
 .modal {
   display: none;
   position: fixed;
@@ -134,6 +135,19 @@ header {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.event-content {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: none;
+  height: 60%;
+  width: 70%;
+  background-color: white;
+  margin: 43.5% 15%;
+  padding: 20px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2)
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -156,12 +170,13 @@ header {
   font-size: 30px;
 }
 
-.closeBtn:hover,
-.closeBtn:focus {
+
+.closeBtn:hover,.closeBtn:focus{
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
+
 @media screen and (max-width: 600px) {
   .modal .event-content {
     margin: 25% auto;
