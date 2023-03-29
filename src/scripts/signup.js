@@ -39,7 +39,7 @@ signupForm.addEventListener('submit', async e => {
         signupFormErrorEl.textContent = res.error;
     } else {
         signupFormErrorEl.textContent = "";
-        localStorage.setItem('cachedUser', JSON.stringify(res))
+        localStorage.setItem('cachedUser', JSON.stringify(res.user))
         console.log('registered');
 
         window.location.assign('/')

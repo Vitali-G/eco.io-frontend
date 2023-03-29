@@ -9,18 +9,22 @@ const modalTitle = document.getElementById('title');
 const modalDescription = document.getElementById('description');
 
 let eventState = {};
+let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
+
+console.log(cachedUser);
 
 async function getAllEvents() {
-    let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
+    let response = await fetch('http://localhost:3000/events/a/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();
 
-        dat.forEach((e, i) => {
-            eventState[i] = e;
-        })
+        if (dat.length) {
+            dat.forEach((e, i) => {
+                eventState[i] = e;
+            })
+        }
 
-        console.log(eventState);
         return dat;
     } catch (error) {
         return error;
@@ -59,16 +63,22 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
 function populateEvents(element, events) {
     let eventElems = [];
 
-    events.forEach((event, i) => {
-        let el = createEventItem(event, i);
-        eventElems.push(el);
-    })
+    if (events.length) {
+        events.forEach((event, i) => {
+            let el = createEventItem(event, i);
+            eventElems.push(el);
+        })
 
-    element.innerHTML = eventElems.join(' ')
+        element.innerHTML = eventElems.join(' ')
+    } else {
+        element.textContent = events.error
+    }
+
 }
 
 allEventsEl.addEventListener('click', (e) => {
     let listItem = e.target.closest('div.event-item');
+
     if(listItem) {
         console.log(eventState[listItem.dataset.index]);
         openModal(eventState[listItem.dataset.index])
@@ -77,6 +87,8 @@ allEventsEl.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     let events = await getAllEvents();
+
+    console.log(events);
 
     if (events.message) {
         window.location.assign('/login.html')

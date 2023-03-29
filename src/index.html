@@ -20,17 +20,24 @@
   </head>
   <body>
     <header class="main-header">
-      <div class="account-display">
-        <p>Admin</p>
-        <a href="./login.html" class="avatar-icon">
-          <p>A</p>
-        </a>
+      <div class="account-display" id="account-display">
+        <div id="account-display-username"><p>Log In</p></div>
       </div>
     </header>
+
+  
 
     <main class="container">
       <p class="list-title">Top Events</p>
       <div class="events-list" id="all-events-list">Loading...</div>
+      <button class="modalBtn" id="modalBtn">Open</button>
+
+      <div id="eventModal" class="modal">
+        <div class="event-content">
+            <span id="closeBtn" class="closeBtn">&times;</span>
+            <p>Hello this is a modal</p>
+        </div>
+    </div>
     </main>
 
     <div id="eventModal" class="modal">
@@ -67,6 +74,7 @@
         <p>All Events</p>
       </a>
     </footer>
+    <script src="./scripts/index.js"></script>
     <script src="./scripts/eventsPage.js"></script>
   </body>
 </html>
