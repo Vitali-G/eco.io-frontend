@@ -1,12 +1,7 @@
 const allEventsEl = document.querySelector('#all-events-list');
 //Get modal element
 const modal = document.getElementById('eventModal');
-//get open modal button
-const event = document.getElementById('modalBtn');
-//get close button
 const closeBtn = document.getElementById('closeBtn');
-const modalTitle = document.getElementById('title');
-const modalDescription = document.getElementById('description');
 
 let eventState = {};
 let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
@@ -100,6 +95,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //Function to open modal
 function openModal(data) {
+    const modalTitle = modal.querySelector('p#title');
+    const modalDescription = modal.querySelector('p#description');
     modal.style.display = 'block';
     modalTitle.textContent = data.title;
     modalDescription.textContent = data.description;
