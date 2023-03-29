@@ -140,44 +140,40 @@ function populateEvents(element, events) {
 }
 
 allEventsEl.addEventListener('click', (e) => {
-    let { userActions, approveEvent, upvoteEvent } = userActionStore();
-
     // find if an item was selected
     let listItem = e.target.closest('div.event-item');
+    if (!listItem) return;
 
-    if (listItem) { // if item clicked
-        // find out which item was clicked
-        let selectedItem = eventState[listItem.dataset.index];
+    // find out which item was clicked
+    let selectedItem = eventState[listItem.dataset.index];
 
-        // find if there was a button clicked
-        let selectedButton = e.target.closest('button');
+    // find if there was a button clicked
+    let selectedButton = e.target.closest('button');
+    if (!selectedButton) return;
 
-        if (selectedButton) { // if button was clicked
+    // build the clickData from the user's interactions thusfar and initialise the userActionStore
+    let clickData = { item: selectedItem.event_id, action: selectedButton.dataset.action }
+    let { userActions, approveEvent, upvoteEvent } = userActionStore();
 
-            // build the clickData from the user's interactions thusfar
-            let clickData = { item: selectedItem.event_id, action: selectedButton.dataset.action }
+    switch (clickData.action) { // depending on the user action
+        // if the user is an admin approve the event
+        case userActions.approve:
+            approveEvent(clickData.item);
+            listItem.remove();
+            break;
 
-            switch (clickData.action) { // depending on the user action
-                // if the user is an admin approve the event
-                case userActions.approve:
-                    approveEvent(clickData.item);
-                    listItem.remove();
-                    break;
+        // if the user is a normal user, upvote the event
+        case userActions.upvote:
+            upvoteEvent(listItem, clickData.item);
+            break;
 
-                // if the user is a normal user, upvote the event
-                case userActions.upvote:
-                    upvoteEvent(listItem, clickData.item);
-                    break;
+        // if the user is a normal user, upvote the event
+        case userActions.view:
+            console.log(selectedItem);
+            break;
 
-                // if the user is a normal user, upvote the event
-                case userActions.view:
-                    console.log(selectedItem);
-                    break;
-
-                default:
-                    break;
-            }
-        }
+        default:
+            break;
     }
 })
 
