@@ -117,12 +117,12 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
            
             ${cachedUser.isAdmin ?
             `<div class="admin-controls">
-                    <button data-action='admin-approve'>approve</button>
-                    <button data-action='user-view'>view</button>
+                    <button data-action='admin-approve' class="approveBtn">approve</button>
+                    <button data-action='user-view' class='viewBtn'>view</button>
                 </div>`
             :
             `<div class="user-controls">
-                    <button data-action='user-upvote'>upvote</button>
+                    <button data-action='user-upvote' class='upvoteBtn'>upvote</button>
                     <button data-action='user-view'>view</button>
                 </div>`
         }
