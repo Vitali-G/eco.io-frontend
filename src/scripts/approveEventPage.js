@@ -1,13 +1,9 @@
 // get the events list element
 const allEventsEl = document.querySelector('#all-events-list');
 
-//Get modal element + close button
-const modal = document.getElementById('eventModal');
-const closeBtn = document.getElementById('closeBtn');
-
 // setting page state - eventsList state + cachedUser
 let eventState = {};
-let cachedUser = JSON.parse(localStorage.getItem('cachedUser'))
+let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
 
 // define user actions
 const userActionStore = () => {
@@ -169,7 +165,11 @@ function populateEvents(element, events) {
 
 }
 
-// invoke modalControls on modal element;
+//Get modal element + close button
+const modal = document.getElementById('eventModal');
+const closeBtn = document.getElementById('closeBtn');
+
+// invoke modalControls on selected modal element;
 let { closeModal, openModal } = modalControls(modal);
 
 // list event listener, determines type of action and conditionally renders controls based on account type
