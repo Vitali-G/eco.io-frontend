@@ -2,6 +2,8 @@ const allEventsEl = document.querySelector('#all-events-list');
 
 let eventState = {};
 
+let cachedUser = JSON.parse(localStorage.getItem('cachedUser'))
+
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
 
@@ -44,6 +46,17 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
             <i class="fas fa-vote-yea"></i>
             ${upvotes}
             </div>
+
+           
+            ${cachedUser.isAdmin ?
+            `<div class="admin-controls">
+                    <button id='admin-approve'>approve</button>
+                </div>`
+            :
+            `<div class="user-controls">
+                    <button id='user-upvote'>upvote</button>
+                </div>`
+        }
         </div>
     </div>`
     )
@@ -66,13 +79,22 @@ function populateEvents(element, events) {
 }
 
 allEventsEl.addEventListener('click', (e) => {
+    // find if an item was selected
     let listItem = e.target.closest('div.event-item');
 
-    if (listItem) {
+    if (listItem) { // if item clicked
+        // find out which item was clicked
         let selectedItem = eventState[listItem.dataset.index];
 
-        // you wanna use this with the modal c: 
-        console.log(selectedItem);
+        // find if there was a button clicked
+        let selectedButton = e.target.closest('button')
+        if (selectedButton) { // if button was clicked
+
+            // print the desired user action from the list
+            console.log({ item: selectedItem.event_id, action: selectedButton.id });
+        }
+
+
     }
 })
 
