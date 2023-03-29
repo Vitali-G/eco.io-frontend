@@ -1,7 +1,15 @@
-function logout() {
-    localStorage.removeItem('cachedUser');
-    console.log('logging out');
-    window.location.assign('/login.html');
+async function logout() {
+    try {
+        localStorage.removeItem('cachedUser');
+        let response = await (await fetch('http://localhost:3000/auth/logout',  { credentials: 'include' })).json();
+
+        return response;
+    } catch (error) {
+
+        console.log(error.message);
+        return error;
+    }
+
 }
 
 (() => {
@@ -9,9 +17,18 @@ function logout() {
 
     let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
 
-    usernameElem.innerText = cachedUser.username;
+    if (cachedUser) usernameElem.innerText = cachedUser.username;
 
-    usernameElem.addEventListener('click', () => {
-        logout()
+
+    usernameElem.addEventListener('click', async () => {
+        let res = await logout();
+
+        if (res.authenticated == false) {
+            console.log('logged out');
+            return window.location.assign('/login.html');
+            return;
+        }
+
+        
     });
 })()
