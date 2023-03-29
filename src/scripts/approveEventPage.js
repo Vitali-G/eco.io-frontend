@@ -1,8 +1,66 @@
 const allEventsEl = document.querySelector('#all-events-list');
 
 let eventState = {};
-
 let cachedUser = JSON.parse(localStorage.getItem('cachedUser'))
+
+// user actions
+const userActionStore = () => {
+    let userActions = {
+        upvote: 'user-upvote',
+        approve: 'admin-approve'
+    }
+    // fix - user can vote multiple times
+    async function upvoteEvent(selectedItem, event_id) {
+        let payload = JSON.stringify({ vote: 1 });
+
+        let options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: payload,
+            credentials: 'include'
+        };
+
+        try {
+            let response = await fetch(`http://localhost:3000/events/v/${event_id}`, options);
+
+            let votesEl = selectedItem.querySelector('div.stat#votes')
+
+            if (votesEl) {
+                let votes = parseInt(votesEl.textContent);
+
+                votesEl.innerHTML = `<i class="fas fa-vote-yea"></i> ${votes + 1}`;
+            }
+
+            return response;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
+
+    async function approveEvent(event_id) {
+        let options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ approval: true }),
+            credentials: 'include'
+        };
+
+        try {
+            let response = await (await fetch(`http://localhost:3000/events/a/${event_id}`, options)).json();
+            return response
+        } catch (error) {
+            console.log(error.message);
+            return error;
+        }
+    }
+
+    return { upvoteEvent, approveEvent, userActions }
+}
 
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
@@ -42,7 +100,7 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
             <i class="fa fa-users" aria-hidden="true"></i>
             10000+
             </div>
-            <div class="stat">
+            <div class="stat" id="votes">
             <i class="fas fa-vote-yea"></i>
             ${upvotes}
             </div>
@@ -79,6 +137,8 @@ function populateEvents(element, events) {
 }
 
 allEventsEl.addEventListener('click', (e) => {
+    let { userActions, approveEvent, upvoteEvent } = userActionStore();
+
     // find if an item was selected
     let listItem = e.target.closest('div.event-item');
 
@@ -88,13 +148,24 @@ allEventsEl.addEventListener('click', (e) => {
 
         // find if there was a button clicked
         let selectedButton = e.target.closest('button')
+
         if (selectedButton) { // if button was clicked
+            // build the clickData from the user
+            let clickData = { item: selectedItem.event_id, action: selectedButton.id }
 
-            // print the desired user action from the list
-            console.log({ item: selectedItem.event_id, action: selectedButton.id });
+            switch (clickData.action) { // depending on the user action
+                // if the user is an admin approve the event
+                case userActions.approve:
+                    approveEvent(clickData.item);
+                    listItem.remove();
+                    break;
+
+                // if the user is a normal user, upvote the event
+                case userActions.upvote:
+                    upvoteEvent(listItem, clickData.item);
+                    break;
+            }
         }
-
-
     }
 })
 
