@@ -1,6 +1,9 @@
 const allEventsEl = document.querySelector('#all-events-list');
 
 let eventState = {};
+let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
+
+console.log(cachedUser);
 
 async function getAllEvents() {
     let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
@@ -61,8 +64,12 @@ function populateEvents(element, events) {
 
 allEventsEl.addEventListener('click', (e) => {
     let listItem = e.target.closest('div.event-item');
+
     if(listItem) {
-        console.log(eventState[listItem.dataset.index]);
+        let selectedItem = eventState[listItem.dataset.index];
+
+        // you wanna use this with the modal c: 
+        console.log(selectedItem);
     }
 })
 
