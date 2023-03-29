@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/leaderboard.css">
+    <link rel="stylesheet" href="./styles/leaderboard.css" />
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -20,17 +20,14 @@
   </head>
   <body>
     <header class="main-header">
-      <div class="account-display">
-        <p>Admin</p>
-        <div class="avatar-icon">
-          <p>A</p>
-        </div>
+      <div class="account-display" id="account-display">
+        <div id="account-display-username"><p>Log In</p></div>
       </div>
     </header>
 
     <main class="container">
       <h1 class="leaderboard-title">Leaderboard</h1>
-      <div class="leaderboard" id="leaderboard"></div>
+      <div class="leaderboard" id="leaderboard">loading...</div>
     </main>
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
@@ -58,6 +55,7 @@
         <p>All Events</p>
       </a>
     </footer>
+    <script src="./scripts/index.js"></script>
     <script src="./scripts/leaderboard.js"></script>
   </body>
 </html>

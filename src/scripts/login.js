@@ -37,7 +37,7 @@ loginForm.addEventListener('submit', async e => {
         loginFormErrorEl.textContent = res.error;
     } else {
         loginFormErrorEl.textContent = "";
-        localStorage.setItem('cachedUser', JSON.stringify(res))
+        localStorage.setItem('cachedUser', JSON.stringify(res.user))
         console.log('logged in');
 
         window.location.assign('/')

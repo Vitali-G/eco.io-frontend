@@ -1,15 +1,18 @@
 const leaderboardElem = document.querySelector('#leaderboard');
 
-let users = [
-    { username: 'stef', isAdmin: true },
-    { username: 'bob', isAdmin: false },
-    { username: 'josh', isAdmin: false },
-    { username: 'steve', isAdmin: true }
-]
+async function getTopUsers() {
+    try {
+        let response = await (await fetch('http://localhost:3000/users/top')).json();
+        return response;
+    } catch (error) {
+        console.log(error);
+        return { error }
+    }
+}
 
-function createUserItem({ username, isAdmin }) {
+function createUserItem({ username, isAdmin, events_attended }) {
     return (
-    `<div class="user-item">
+        `<div class="user-item">
         <div class="user-header">
             <div class="user-header-tag">
                 <h2>${username}</h2>
@@ -23,7 +26,7 @@ function createUserItem({ username, isAdmin }) {
         <div class="user-body">
             <div class="stat">
                 <i class="fa fa-ticket" aria-hidden="true"></i>
-                <p>124</p>
+                <p>${events_attended}</p>
             </div>
         </div>
     </div>`
@@ -41,6 +44,13 @@ function populateLeaderboard(users) {
     leaderboardElem.innerHTML = usersEls.join(' ')
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    populateLeaderboard(users)
+document.addEventListener('DOMContentLoaded', async () => {
+    let users = await getTopUsers();
+
+    if(users.error) {
+        console.log(users.error);
+    }else {
+
+        populateLeaderboard(users)
+    }
 })
