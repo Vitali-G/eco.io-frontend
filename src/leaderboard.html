@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link rel="stylesheet" href="./styles/events.css" />
+    <link rel="stylesheet" href="./styles/leaderboard.css">
     <link
       rel="stylesheet"
       href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
@@ -16,40 +16,28 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Eventite - All Events</title>
+    <title>Index</title>
   </head>
   <body>
     <header class="main-header">
       <div class="account-display">
         <p>Admin</p>
-        <a href="./login.html" class="avatar-icon">
+        <div class="avatar-icon">
           <p>A</p>
-        </a>
+        </div>
       </div>
     </header>
 
     <main class="container">
-    
-      <p class="list-title">Top Events</p>
-      <div class="events-list" id="all-events-list">
-        
-      </div>
+      <h1 class="leaderboard-title">Leaderboard</h1>
+      <div class="leaderboard" id="leaderboard"></div>
     </main>
-
-    <button class="modalBtn" id="modalBtn">Open</button>
-    <div id="eventModal" class="modal">
-        <div class="event-content">
-            <span id="closeBtn" class="closeBtn">&times;</span>
-            <p>Hello this is a modal</p>
-        </div>
-    </div>
-
     <footer class="mobile-nav">
       <a href="./about.html" class="mobile-nav-icon">
         <i class="fa fa-question-circle" aria-hidden="true"></i>
         <p>Help</p>
       </a>
-      
+
       <a href="./create-event.html" class="mobile-nav-icon">
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
         <p>Request Event</p>
@@ -65,11 +53,11 @@
         <p>Leaderboard</p>
       </a>
 
-      <a href="./events.html" class="mobile-nav-icon">
+      <a href="./" class="mobile-nav-icon">
         <i class="fa fa-ticket" aria-hidden="true"></i>
         <p>All Events</p>
       </a>
     </footer>
-    <script src="./scripts/eventsPage.js"></script>
+    <script src="./scripts/leaderboard.js"></script>
   </body>
 </html>
