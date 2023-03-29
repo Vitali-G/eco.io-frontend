@@ -31,7 +31,7 @@ loginForm.addEventListener('submit', async e => {
     let data = { username: formValues.get('username').toString(), password: formValues.get('password').toString() }
 
     let res = await login(data);
-
+    console.log(data)
 
     if (res.error) {
         loginFormErrorEl.textContent = res.error;
