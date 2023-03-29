@@ -41,3 +41,8 @@
     font-size: 22px;
     border: transparent 0px solid;
 }
+
+.signup-form button:hover {
+    background: grey;
+    cursor: pointer;
+}
