@@ -59,6 +59,7 @@ formElem.addEventListener('submit', async (e) => {
     if (res.message) { // if there is an error, redirect to login page
         return window.location.assign('/login.html');
     }
-
+    
     console.log(res);
+    window.location.assign('/approve-event.html')
 })

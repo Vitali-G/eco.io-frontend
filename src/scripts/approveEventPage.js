@@ -67,7 +67,6 @@ const userActionStore = () => {
 
 // define modal controls 
 const modalControls = (modal) => {
-
     //Function to open modal
     function openModal(data) {
         let modalTitle = modal.querySelector('p#title');
