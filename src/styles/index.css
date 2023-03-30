@@ -180,7 +180,7 @@ div.hero-text {
 }
 
 #cta-button:hover {
-  background-color: #000;
+  background-color: #e6e66a;
   transition: 0.2s;
   cursor: pointer;
 }
