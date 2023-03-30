@@ -80,13 +80,19 @@ function populateEvents(element, events) {
 let userActionsStore = () => {
     let userActions = { view: 'user-view', delete: 'admin-delete', book: 'user-book' }
 
-    async function deleteEvent(event_id) {
-        console.log(`DELETE events/${event_id}`);
+    async function deleteEvent(eventEl, event_id) {
+     try {
+        let response = await (await fetch(`http://localhost:3000/events/${event_id}`, { credentials: 'include', method: 'DELETE' })).json();
+        eventEl.remove();
+        console.log(response);
+     } catch (error) {
+        console.log(error);
+     }
     }
 
     async function bookEvent(event_id) {
         console.log(`POST users/bookings/`);
-        console.log({body: {user_id: cachedUser.user_id, event_id}});
+        console.log({user_id: cachedUser.user_id, event_id});
     }
 
     return { userActions, deleteEvent, bookEvent }
@@ -138,7 +144,7 @@ allEventsEl.addEventListener('click', (e) => {
                     break;
 
                 case userActions.delete:
-                    deleteEvent(selectedItem.event_id)
+                    deleteEvent(listItem, selectedItem.event_id)
                     break;
 
                 default:

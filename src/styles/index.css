@@ -186,16 +186,17 @@ header {
   cursor: pointer;
 }
 
-.book {
+.modalBtn {
   float: bottom;
   background-color: grey;
   color: #fff;
   border: transparent solid 0px;
   border-radius: 5px;
   height: 24px;
+  width: 100%;
 }
 
-.book:hover {
+.modalBtn:hover {
   background: rgb(34, 34, 34);
   cursor: pointer;
 }
