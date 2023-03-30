@@ -2,7 +2,7 @@ const leaderboardElem = document.querySelector('#leaderboard');
 
 async function getTopUsers() {
     try {
-        let response = await (await fetch('http://localhost:3000/users/top')).json();
+        let response = await (await fetch(' http://localhost:3000/users/top')).json();
         return response;
     } catch (error) {
         console.log(error);

@@ -26,7 +26,7 @@ const userActionStore = () => {
         };
 
         try {
-            let response = await fetch(`http://localhost:3000/events/v/${event_id}`, options);
+            let response = await fetch(` http://localhost:3000/events/v/${event_id}`, options);
 
             let votesEl = selectedItem.querySelector('div.stat#votes')
 
@@ -54,7 +54,7 @@ const userActionStore = () => {
         };
 
         try {
-            let response = await (await fetch(`http://localhost:3000/events/a/${event_id}`, options)).json();
+            let response = await (await fetch(` http://localhost:3000/events/a/${event_id}`, options)).json();
             return response
         } catch (error) {
             console.log(error.message);
@@ -89,7 +89,7 @@ const modalControls = (modal) => {
 
 // function to call for events from server
 async function getAllEvents() {
-    let response = await fetch('http://localhost:3000/events/all', { credentials: 'include' })
+    let response = await fetch(' http://localhost:3000/events/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();

@@ -2,7 +2,7 @@
     async function logout() {
         try {
             localStorage.removeItem('cachedUser');
-            let response = await (await fetch('http://localhost:3000/auth/logout', { credentials: 'include' })).json();
+            let response = await (await fetch(' http://localhost:3000/auth/logout', { credentials: 'include' })).json();
 
             return response;
         } catch (error) {

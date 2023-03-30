@@ -8,7 +8,7 @@ let activeEvent = null;
 let cachedUser = JSON.parse(localStorage.getItem('cachedUser'));
 
 async function getAllEvents() {
-    let response = await fetch('http://localhost:3000/events/a/all', { credentials: 'include' })
+    let response = await fetch(' http://localhost:3000/events/a/all', { credentials: 'include' })
 
     try {
         let dat = await response.json();
@@ -69,7 +69,7 @@ function populateEvents(element, events) {
             eventElems.push(el);
         })
 
-        element.innerHTML = eventElems.join(' ')
+        element.innerHTML = eventElems.join(' ');
     } else {
         element.textContent = events.error
     }
@@ -82,7 +82,7 @@ let userActionsStore = () => {
 
     async function deleteEvent(eventEl, event_id) {
      try {
-        let response = await (await fetch(`http://localhost:3000/events/${event_id}`, { credentials: 'include', method: 'DELETE' })).json();
+        let response = await (await fetch(` http://localhost:3000/events/${event_id}`, { credentials: 'include', method: 'DELETE' })).json();
         eventEl.remove();
         console.log(response);
      } catch (error) {

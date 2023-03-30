@@ -12,7 +12,7 @@ async function createEvent(data) {
 
     try {
         // attempt to create event
-        let response = await (await fetch('http://localhost:3000/events', options)).json()
+        let response = await (await fetch(' http://localhost:3000/events', options)).json()
 
         return response;
 
