@@ -1,14 +1,25 @@
-#hero {
+.hero-text .hero-title {
   padding: 5px;
   background-color: #e6e66a;
+  max-width: 35%;
 }
 
-.hero-text #tagline {
+.hero-text .hero-tagline {
   position: absolute;
   bottom: 15px;
   padding: 5px;
   background-color: #e6e66a;
   max-width: 35%;
+}
+
+div.hero-text {
+  position: relative;
+  text-align: left;
+  padding: 20px;
+  background-image: url("../assets/gardens.jpeg");
+  background-size: 100%;
+  min-height: 350px;
+  margin-bottom: 1em;
 }
 
 .cta {
@@ -34,4 +45,76 @@
 
 #more-info {
   font-size: 1.1em;
+}
+
+@media screen and (min-width: 670px) {
+  .hero-text .hero-title {
+    font-size: 30px;
+    max-width: 30%;
+  }
+  
+  .hero-text .hero-tagline {
+    font-size: 20px;
+  }
+  div.hero-text {
+    min-height: 500px;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .hero-text .hero-title {
+    font-size: 37px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .hero-text .hero-title {
+    font-size: 41px;
+    max-width: 30%;
+  }
+  div.hero-text {
+    min-height: 600px;
+  }
+  .hero-text .hero-tagline {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .hero-text .hero-title {
+    font-size: 48px;
+    max-width: 30%;
+  }
+  div.hero-text {
+    min-height: 750px;
+  }
+  .hero-text .hero-tagline {
+    font-size: 29px;
+  }
+}
+
+@media screen and (min-width: 1370px) {
+  .hero-text .hero-title {
+    font-size: 55px;
+    max-width: 25%;
+  }
+  div.hero-text {
+    min-height: 900px;
+  }
+  .hero-text .hero-tagline {
+    font-size: 34px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .hero-text .hero-title {
+    font-size: 55px;
+    max-width: 25%;
+  }
+  div.hero-text {
+    min-height: 1150px;
+  }
+  .hero-text .hero-tagline {
+    font-size: 34px;
+  }
 }
