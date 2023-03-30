@@ -1,0 +1,19 @@
+/* Set max width for content */
+#about {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+/* Set font size for different screen sizes */
+@media (max-width: 767px) {
+	html, body {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 576px) {
+	html, body {
+		font-size: 12px;
+	}
+}
