@@ -20,11 +20,9 @@ p,
 ol
 
 h1 {
-  color: #1e1e2f;
   font-weight: bold;
 }
 h2 {
-  color: #AD00FF;
   font-size: 1em;
 }
 
@@ -135,9 +133,6 @@ header {
   font-size: 2em;
 }
 
-body {
-  display: block
-}
 
 div.hero-text {
   position: relative;

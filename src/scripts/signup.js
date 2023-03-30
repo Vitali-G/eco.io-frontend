@@ -15,7 +15,7 @@ async function signup(data) {
         body: payload
     }
 
-    let response = await fetch('http://localhost:3000/auth/register', options)
+    let response = await fetch(' http://localhost:3000/auth/register', options)
     //Error handling
     try {
         let dat = await response.json();

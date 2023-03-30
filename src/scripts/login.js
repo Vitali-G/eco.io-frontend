@@ -13,7 +13,7 @@ async function login(data) {
         body: payload
     }
 
-    let response = await fetch('http://localhost:3000/auth/login', options)
+    let response = await fetch(' http://localhost:3000/auth/login', options)
 
     try {
         let dat = await response.json();
@@ -40,6 +40,6 @@ loginForm.addEventListener('submit', async e => {
         localStorage.setItem('cachedUser', JSON.stringify(res.user))
         console.log('logged in');
 
-        window.location.assign('/')
+        window.location.assign('/approved-events.html')
     }
 })
