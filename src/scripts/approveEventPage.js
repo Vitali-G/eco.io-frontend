@@ -123,10 +123,6 @@ function createEventItem({ upvotes, title, location }, index) {
         <div class="item-spacer"></div>
 
         <div class="event-body">
-            <div class="stat">
-            <i class="fa fa-users" aria-hidden="true"></i>
-            10000+
-            </div>
             <div class="stat" id="votes">
             <i class="fas fa-vote-yea"></i>
             ${upvotes}

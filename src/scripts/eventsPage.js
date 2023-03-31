@@ -26,7 +26,7 @@ async function getAllEvents() {
 
 }
 
-function createEventItem({ owner_id, upvotes, title, description, location }, index) {
+function createEventItem({ owner_id, upvotes, title, description, location, booking_count }, index) {
     return (
         `<div class="event-item" data-index="${index}">
             <div class="event-header">
@@ -43,7 +43,7 @@ function createEventItem({ owner_id, upvotes, title, description, location }, in
             <div class="event-body">
                 <div class="stat">
                 <i class="fa fa-users" aria-hidden="true"></i>
-                10000+
+                ${booking_count}
                 </div>
                 <div class="stat">
                 <i class="fas fa-vote-yea"></i>
