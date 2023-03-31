@@ -136,16 +136,6 @@ header {
   font-size: 2em;
 }
 
-div.hero-text {
-  position: relative;
-  text-align: left;
-  padding: 20px;
-  background-image: url("../assets/gardens.jpeg");
-  background-size: 100%;
-  min-height: 350px;
-  margin-bottom: 1em;
-}
-
 .closeBtn {
   color: #ccc;
   float: right;
